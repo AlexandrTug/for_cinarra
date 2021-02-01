@@ -15,18 +15,19 @@ class HttpProcessor(BaseHTTPRequestHandler):
     is_space = False
     is_char = False
     char_count = 0
-    space_set={' ', ',', '.', '!', ':', ';', '?', '\n', '\r'}
+    space_set = {' ', ',', '.', '!', ':', ';', '?', '\n', '\r'}
 
     def ins_TM(self, in_text):
-        
-        out_text=''
+
+        out_text = ''
+
         for i in range(len(in_text)):
 
             if in_text[i] == self.tag_open :
                 if self.char_count == 6:
                     out_text += u"\u2122" 
                 self.in_tag = True
-                self.char_count =0
+                self.char_count = 0
 
             elif in_text[i] == self.tag_close : 
                 self.in_tag = False
@@ -41,7 +42,7 @@ class HttpProcessor(BaseHTTPRequestHandler):
                 self.is_char = True
                 self.char_count += 1
             
-            out_text+=in_text[i]    
+            out_text += in_text[i]    
 
         return out_text
 
