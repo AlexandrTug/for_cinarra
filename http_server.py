@@ -20,6 +20,7 @@ class HttpProcessor(BaseHTTPRequestHandler):
     def ins_TM(self, in_text):
 
         out_text = ''
+
         for i in range(len(in_text)):
 
             if in_text[i] == self.tag_open :
